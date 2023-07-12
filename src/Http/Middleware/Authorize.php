@@ -3,7 +3,6 @@
 use Closure;
 use GeneaLabs\NovaHorizon\NovaHorizon;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 
@@ -15,9 +14,9 @@ class Authorize
      * @param Request                $request
      * @param Closure(Request):mixed $next
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function handle(Request $request, $next): Response
+    public function handle(Request $request, $next): \Symfony\Component\HttpFoundation\Response
     {
         $tool = collect(Nova::registeredTools())->first([$this, 'matchesTool']);
 
